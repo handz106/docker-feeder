@@ -6,11 +6,12 @@ RUN apt-get update && \
 RUN apt-get update \
     && apt-get install -y --allow-unauthenticated \
         curl \
+        apt-utils \
         p7zip-full \
         nginx \
         supervisor
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -yq nodejs
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -yq nodejs
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
